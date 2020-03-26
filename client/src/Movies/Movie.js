@@ -6,7 +6,7 @@ import MovieCard from "./MovieCard";
 function Movie({ addToSavedList }, props) {
   const [movie, setMovie] = useState(null);
   const match = useRouteMatch();
-  const history = useHistory();
+  const { push } = useHistory();
 
   const fetchMovie = id => {
     axios
@@ -21,7 +21,7 @@ function Movie({ addToSavedList }, props) {
 
   const routeToUpdateMovie = e => {
     e.preventDefault();
-    history.push(`/update-movie/${match.params.id}`);
+    push(`/update-movie/${match.params.id}`);
   };
 
   useEffect(() => {
